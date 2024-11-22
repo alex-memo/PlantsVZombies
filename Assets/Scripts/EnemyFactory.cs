@@ -4,7 +4,7 @@ public abstract class EnemyFactory<T> : MonoBehaviour where T : IDamageable
 {
 	protected Rigidbody rb;
 	protected static Vector3 direction = new(-1, 0, 0);
-	protected abstract float speed{ get; }
+	protected abstract float speed { get; }
 	protected int hp;
 	protected static int maxHp = 1;
 	public void TakeDamage(int _damage)
@@ -13,7 +13,7 @@ public abstract class EnemyFactory<T> : MonoBehaviour where T : IDamageable
 		if (hp > 0) { return; }
 		Death();
 	}
-	private void Death()
+	protected virtual void Death()
 	{
 		gameObject.SetActive(false);
 		specialDeathEffect();

@@ -23,4 +23,9 @@ public class PeashooterEnemy : EnemyFactory<IDamageable>, IDamageable
 	{
 		var _bullet = Instantiate(GameManager.Instance.EnemyBulletPrefab, transform.position, Quaternion.identity);
 	}
+	protected override void Death()
+	{
+		base.Death();
+		GameManager.Instance.AddInsanity(1);
+	}
 }
